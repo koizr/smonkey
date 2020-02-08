@@ -83,7 +83,7 @@ case class Lexer(
           case (l, str) => (l, Token(StringToken, str))
         }
         case _ if lexer.onLetter => lexer.readIdentifier() match {
-          case (l, identifier) => (l, Token(Token.LookupKeywords(identifier), identifier))
+          case (l, identifier) => (l, Token(Token.lookupKeywords(identifier), identifier))
         }
         case _ if lexer.onDigit => lexer.readNumber() match {
           case (l, num) => (l, Token(IntegerToken, num))

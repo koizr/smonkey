@@ -86,7 +86,7 @@ object Token {
     ("return", ReturnToken),
   )
 
-  def LookupKeywords(id: String): TokenType = keywords.get(id) match {
+  def lookupKeywords(id: String): TokenType = keywords.get(id) match {
     case Some(tokenType) => tokenType
     case None => IdentifierToken
   }
