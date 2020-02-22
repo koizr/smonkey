@@ -102,7 +102,8 @@ object Lexer {
   @scala.annotation.tailrec
   private def readWhile(condition: Lexer => Boolean)(lexer: Lexer, chunk: String = ""): (Lexer, String) =
     if (condition(lexer)) {
-      // onDigit なので絶対に lexer.char は Some
+      // 条件を満たしたら絶対に読まなければならないので get する
+      // もしこれで落ちたらロジックがおかしい
       readWhile(condition)(lexer.readChar(), chunk :+ lexer.char.get)
     } else {
       (lexer, chunk)
