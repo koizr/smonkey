@@ -136,7 +136,7 @@ class LexerSpec extends FlatSpec with Matchers {
     for {(tokenType, literal) <- tests} lexer.nextToken() match {
       case (l, t) =>
         lexer = l
-        t._type shouldBe tokenType
+        t.tokenType shouldBe tokenType
         t.literal shouldBe literal
     }
   }

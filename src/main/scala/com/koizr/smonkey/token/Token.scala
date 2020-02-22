@@ -73,7 +73,7 @@ object ElseToken extends TokenType
 object ReturnToken extends TokenType
 
 
-case class Token(_type: TokenType, literal: String)
+case class Token(tokenType: TokenType, literal: String)
 
 object Token {
   private val keywords: Map[String, TokenType] = Map(
